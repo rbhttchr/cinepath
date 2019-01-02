@@ -6,6 +6,7 @@
 *   Solid line indicates walk;
 *   Dashed line indicates jumps;
 *
+*   Waypoints not avaliable for TRANSIT.
 */
 
 var map;
@@ -61,8 +62,13 @@ async function initMap() {
        }, 1960);
 
        setTimeout(function(){
-         jump2(map);            // 50
+         jump2(map);            // 50 + 1050
        }, 2010);
+
+       setTimeout(function(){
+
+         getDirections3(map);   //
+       }, 3110);
 
 }
 
@@ -109,7 +115,7 @@ function route3(map, pathCoords) {
     var route = new google.maps.Polyline({
         path: [],
         geodesic : true,
-        strokeColor: 'white',
+        strokeColor: '#f45898',
         strokeOpacity: 0.5,
         strokeWeight: 5,
         editable: false,
@@ -284,7 +290,7 @@ function jump2(map) {
   });
 
   var locations = [{lat: 40.675747, lng: -73.969796},    // Apartment w/ Sphoie
-                   {lat: 40.714404, lng: -74.005954},    // Dance Company
+                   {lat: 40.714404, lng: -74.005954},    // Dance New Amsterdam
                  ];
 
   for (var i = 0; i < locations.length; i++) {
@@ -296,23 +302,18 @@ function jump2(map) {
   }
 }
 
+// Work 10:19 - 13:00
 
-// Travis in LA 37:58
+// Work, Sophie and Home 13:00 - 15:14
 function getDirections3(map) {
     var directionsService = new google.maps.DirectionsService();
     var request = {
-              origin: new google.maps.LatLng(34.219878, -118.350022),      // Walter's Home
+              origin: new google.maps.LatLng(40.714404, -74.005954),      // Dance New Amsterdam
               waypoints: [
-                {location: new google.maps.LatLng(34.219730, -118.350115)},     // Backyard
-                {location: new google.maps.LatLng(34.198446, -118.321350)},     // Hunter's School
-                {location: new google.maps.LatLng(34.219878, -118.350022)},     // Walter's Home
-                {location: new google.maps.LatLng(34.198446, -118.321350)},     // Hunter's School
-                {location: new google.maps.LatLng(34.220059, -118.348308)},     // Walking home midpoint
-                {location: new google.maps.LatLng(34.219878, -118.350022)},     // Walter's home
-                {location: new google.maps.LatLng(34.219730, -118.350115)},     // Backyard
-                {location: '13795 Balboa Blvd, Sylmar, CA 91342'}               // Travis Nightwalking
+                {location: 'Burlington House, New York, NY 10105'},       // Sophie's Workplace
+                {location: 'Bryant Park, New York, NY 10018'}             // Bryant Park
               ],
-              destination: new google.maps.LatLng(34.198446, -118.321350),      // Hunter's School
+              destination: new google.maps.LatLng(40.675747, -73.969796),      // Apartment w/ Sphoie
               travelMode: google.maps.TravelMode.WALKING
           };
 
