@@ -3,7 +3,7 @@
 *   Frances Ha by Noah Baumbach in 2013 using Google
 *   Maps API.
 *
-*   Solid line indicates walk;
+*   Solid line indicates walk, run and transit;
 *   Dashed line indicates jumps;
 *
 *   Waypoints not avaliable for TRANSIT.
@@ -66,15 +66,68 @@ async function initMap() {
        }, 2010);
 
        setTimeout(function(){
-
          getDirections3(map);   //
        }, 3110);
 
+       setTimeout(function(){
+         getDirections4(map);   //
+       }, 4000);
+
+       setTimeout(function(){
+         getDirections5(map);   //
+       }, 6000);
+
+       setTimeout(function(){
+         getDirections6(map);   //
+       }, 6500);
+
+       setTimeout(function(){
+         jump3(map);   //
+       }, 7500);
+
+       setTimeout(function(){
+         getDirections7(map);   //
+       }, 8000);
+
+       setTimeout(function(){
+         jump4(map);   //
+       }, 8500);
+
+       setTimeout(function(){
+         getDirections8(map);   //
+       }, 9000);
+
+       setTimeout(function(){
+         jump5(map);   //
+       }, 10000);
+
+       setTimeout(function(){
+         jump6(map);   //
+       }, 12000);
+
 }
 
-/* Travel Modes Abandoned
-*  Tuning paramter is no witchcraft but mathmatics.
-*/
+
+
+// Opening Montages 0:29
+function getDirections1(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(40.727017, -73.981311),         // Tompkins Square Park
+              waypoints: [
+                {location: new google.maps.LatLng(40.726919, -73.981906)},   // Tompkins Square Park
+                {location: new google.maps.LatLng(40.726097, -73.982609)}   // Tompkins Square Park
+              ],
+              destination: new google.maps.LatLng(40.722859, -73.988950),   // Oliva Restaurant
+              travelMode: google.maps.TravelMode.WALKING
+          };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route1(map, result.routes[0].overview_path);
+        }
+    });
+}
+
 function route1(map, pathCoords) {
     var route = new google.maps.Polyline({
         path: [],
@@ -85,123 +138,14 @@ function route1(map, pathCoords) {
         editable: false,
         map:map
     });
+
 //    console.log(pathCoords.length);
+
     for (var i = 0; i < pathCoords.length; i++) {
         setTimeout(function(coords) {
             route.getPath().push(coords);
         }, 5 * i, pathCoords[i]);
     }
-}
-
-function route2(map, pathCoords) {
-    var route = new google.maps.Polyline({
-        path: [],
-        geodesic : true,
-        strokeColor: '#f45898',
-        strokeOpacity: 0.5,
-        strokeWeight: 5,
-        editable: false,
-        map:map
-    });
-    console.log(pathCoords.length);
-    for (var i = 0; i < pathCoords.length; i++) {
-        setTimeout(function(coords) {
-            route.getPath().push(coords);
-        }, 3 * i, pathCoords[i]);
-    }
-}
-
-function route3(map, pathCoords) {
-    var route = new google.maps.Polyline({
-        path: [],
-        geodesic : true,
-        strokeColor: '#f45898',
-        strokeOpacity: 0.5,
-        strokeWeight: 5,
-        editable: false,
-        map:map
-    });
-
-    for (var i = 0; i < pathCoords.length; i++) {
-        setTimeout(function(coords) {
-            route.getPath().push(coords);
-        }, 23 * i, pathCoords[i]);
-    }
-}
-
-function route4(map, pathCoords) {
-    var route = new google.maps.Polyline({
-        path: [],
-        geodesic : true,
-        strokeColor: 'white',
-        strokeOpacity: 0.5,
-        strokeWeight: 5,
-        editable: false,
-        map:map
-    });
-
-    for (var i = 0; i < pathCoords.length; i++) {
-        setTimeout(function(coords) {
-            route.getPath().push(coords);
-        }, 2.3 * i, pathCoords[i]);
-    }
-}
-
-function route5(map, pathCoords) {
-    var route = new google.maps.Polyline({
-        path: [],
-        geodesic : true,
-        strokeColor: 'white',
-        strokeOpacity: 0.5,
-        strokeWeight: 5,
-        editable: false,
-        map:map
-    });
-
-    for (var i = 0; i < pathCoords.length; i++) {
-        setTimeout(function(coords) {
-            route.getPath().push(coords);
-        }, 12 * i, pathCoords[i]);
-    }
-}
-
-
-function route6(map, pathCoords) {
-    var route = new google.maps.Polyline({
-        path: [],
-        geodesic : true,
-        strokeColor: 'white',
-        strokeOpacity: 0.5,
-        strokeWeight: 5,
-        editable: false,
-        map:map
-    });
-
-    for (var i = 0; i < pathCoords.length; i++) {
-        setTimeout(function(coords) {
-            route.getPath().push(coords);
-        }, 10 * i, pathCoords[i]);            // playing safe
-    }
-}
-
-// Opening Montages 0:29
-function getDirections1(map) {
-    var directionsService = new google.maps.DirectionsService();
-    var request = {
-              origin: new google.maps.LatLng(40.727017, -73.981311),         // Tompkins Square Park
-              waypoints: [
-                {location: new google.maps.LatLng(40.726919, -73.981906)},   // Tompkins Square Park
-                {location: new google.maps.LatLng(40.726097, -73.982609)},   // Tompkins Square Park
-                {location: new google.maps.LatLng(40.722859, -73.988950)},   // Oliva Restaurant
-              ],
-              destination: new google.maps.LatLng(40.722859, -73.988950),   // Broadway Station
-              travelMode: google.maps.TravelMode.WALKING
-          };
-    directionsService.route(request, function(result, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-            route1(map, result.routes[0].overview_path);
-        }
-    });
 }
 
 // Montages Continues
@@ -228,9 +172,9 @@ function jump1(map) {
   });
 
   var locations = [{lat: 40.722859, lng: -73.988950},    // Boardway Station
-                   {lat: 40.675747, lng: -73.969796},    // Apartment w/ Sophie
+                   {lat: 40.675747, lng: -73.969796},    // Apt w/ Sophie
                    {lat: 40.677402, lng: -73.969178},    // Laundromat
-                   {lat: 40.675747, lng: -73.969796}     // Apartment w/ Sophie
+                   {lat: 40.675747, lng: -73.969796}     // Apt w/ Sophie
                  ];
 
   for (var i = 0; i < locations.length; i++) {
@@ -248,13 +192,9 @@ function jump1(map) {
 function getDirections2(map) {
     var directionsService = new google.maps.DirectionsService();
     var request = {
-              origin: new google.maps.LatLng(40.713044, -73.997381),             // Party
-              waypoints: [
-                {location: new google.maps.LatLng(40.713284, -73.990005)},     // Chinatown
-                {location: new google.maps.LatLng(40.714625, -73.989926)},     // East Boardway F Train
-                {location: new google.maps.LatLng(40.704115, -73.988801)}     // Manhattan Bridge
-              ],
-              destination: new google.maps.LatLng(40.675747, -73.969796),      // Apartment w/ Sophie
+              origin: new google.maps.LatLng(40.713044, -73.997381),            // Party
+              waypoints: google.maps.LatLng(40.713284, -73.990005),             // Chinatown
+              destination: new google.maps.LatLng(40.714625, -73.989926),       // East Boardway F Train
   //            destination: 'Chicago, IL',
               travelMode: google.maps.TravelMode.DRIVING
           };
@@ -265,6 +205,65 @@ function getDirections2(map) {
         }
     });
 }
+
+function route2(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    console.log(pathCoords.length);
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 3 * i, pathCoords[i]);
+    }
+}
+
+// Taxi Home 6:46
+function getDirections3(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(40.714625, -73.989926),            // East Broadway F Train
+              waypoints: google.maps.LatLng(40.704115, -73.988801),             // Manhattan Bridge
+              destination: new google.maps.LatLng(40.675747, -73.969796),       // Apt w/ Sophie
+  //            destination: 'Chicago, IL',
+              travelMode: google.maps.TravelMode.DRIVING
+          };
+
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route3(map, result.routes[0].overview_path);
+        }
+    });
+}
+
+function route3(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    console.log(pathCoords.length);
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 5 * i, pathCoords[i]);
+    }
+}
+
 
 // Dance Company 10:19
 function jump2(map) {
@@ -304,35 +303,13 @@ function jump2(map) {
 
 // Work 10:19 - 13:00
 
-// Work, Sophie and Home 13:00 - 15:14
-function getDirections3(map) {
-    var directionsService = new google.maps.DirectionsService();
-    var request = {
-              origin: new google.maps.LatLng(40.714404, -74.005954),      // Dance New Amsterdam
-              waypoints: [
-                {location: 'Burlington House, New York, NY 10105'},       // Sophie's Workplace
-                {location: 'Bryant Park, New York, NY 10018'}             // Bryant Park
-              ],
-              destination: new google.maps.LatLng(40.675747, -73.969796),      // Apartment w/ Sphoie
-              travelMode: google.maps.TravelMode.WALKING
-          };
-
-    directionsService.route(request, function(result, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-            route3(map, result.routes[0].overview_path);
-        }
-    });
-}
-
-// Father and Son Driving 1:15:09
+// Find Sophie at Work 13:00
 function getDirections4(map) {
     var directionsService = new google.maps.DirectionsService();
     var request = {
-              origin: new google.maps.LatLng(34.198446, -118.321350),      // Hunter's School
-              waypoints: google.maps.LatLng(34.490968, -118.203032),      // Hunter about Universe
-              destination: new google.maps.LatLng(33.919858, -116.773296),      // Payphone
-  //            destination: 'Chicago, IL',
-              travelMode: google.maps.TravelMode.DRIVING
+              origin: new google.maps.LatLng(40.714404, -74.005954),      // Dance New Amsterdam
+              destination: 'Burlington House, New York, NY 10105',        // Sophie's Workplace
+              travelMode: google.maps.TravelMode.TRANSIT
           };
 
     directionsService.route(request, function(result, status) {
@@ -342,20 +319,33 @@ function getDirections4(map) {
     });
 }
 
+function route4(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
 
+    console.log(pathCoords.length);
 
-// Travis and Hunter to Texas 1:22:25 - 1:34:57
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 23 * i, pathCoords[i]);
+    }
+}
+
+// Frances and Sophie @ Bryant Park
 function getDirections5(map) {
     var directionsService = new google.maps.DirectionsService();
     var request = {
-              origin: new google.maps.LatLng(33.919858, -116.773296),      // Father and Son in Hotel
-              waypoints: [
-                {location: new google.maps.LatLng(29.764011, -95.362674)},     // Chase Bank Drive Up
-                {location: new google.maps.LatLng(29.871551, -93.934962)},     // Port Auther
-                {location: new google.maps.LatLng(29.871065, -93.934972)}     // Travis enters building
-              ],
-              destination: new google.maps.LatLng(29.871193, -93.935046),      // Keyhole Klub
-              travelMode: google.maps.TravelMode.DRIVING
+              origin: 'Burlington House, New York, NY 10105',      // Sophie's Workplace
+              destination: 'Bryant Park, New York, NY 10018',      // Bryant Park
+              travelMode: google.maps.TravelMode.WALKING
           };
 
     directionsService.route(request, function(result, status) {
@@ -365,21 +355,32 @@ function getDirections5(map) {
     });
 }
 
-// First Vist at Keyhole Klub 13'07
+function route5(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
 
-// Travis leaves Keyhole Klub 1:48:04 - 1:58:54
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
+}
+
+
+// Frances and Sophie Split Up on Subway
 function getDirections6(map) {
     var directionsService = new google.maps.DirectionsService();
     var request = {
-              origin: new google.maps.LatLng(29.871193, -93.935046),      // Keyhole Klub
-              waypoints: [
-                {location: new google.maps.LatLng(28.921138, -97.609307)},     // Westhoff ??? Nordheim
-                {location: new google.maps.LatLng(28.921919, -97.610754)},     // Broadway Bar
-                {location: new google.maps.LatLng(28.922325, -97.610163)},     // Grocery
-                {location: new google.maps.LatLng(29.757957, -95.371180)}       // DoubleTree Houston Downtown
-              ],
-              destination: new google.maps.LatLng(29.871193, -93.935046),      // Keyhole Klub
-              travelMode: google.maps.TravelMode.DRIVING
+              origin: 'Bryant Park, New York, NY 10018',                        // Bryant Park
+              destination: new google.maps.LatLng(40.675747, -73.969796),       // Apt w/ Sophie
+              travelMode: google.maps.TravelMode.TRANSIT
           };
 
     directionsService.route(request, function(result, status) {
@@ -389,9 +390,27 @@ function getDirections6(map) {
     });
 }
 
-// The Famouse Scene 20'46
+function route6(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
 
-// Mother and Son Reunion 2:19:40
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
+}
+
+// Tax Rebate Bank Missing
+
+// Dinner w/ Lev
 function jump3(map) {
   var lineSymbol = {
     path: 'M 0,-1 0,1',
@@ -402,7 +421,7 @@ function jump3(map) {
   var line = new google.maps.Polyline({
     path: [],
     geodesic: true,
-    strokeColor: 'white',
+    strokeColor: '#f45898',
     strokeOpacity: 0,
     strokeWeight: 5,
     editable: false,
@@ -414,9 +433,8 @@ function jump3(map) {
     map:map
   });
 
-  var locations = [{lat: 29.758249, lng: -95.369281},    // Downtown Parking Garage
-                   {lat: 29.757957, lng: -95.371180},    // DoubleTree Houston Downtown
-                   {lat: 29.758249, lng: -95.369281}    // Downtown Parking Garage
+  var locations = [{lat: 40.675747, lng: -73.969796},     // Apt w/ Sophie
+                   {lat: 40.720648, lng: -73.985336}      // AZUL Bistro
                  ];
 
   for (var i = 0; i < locations.length; i++) {
@@ -424,11 +442,204 @@ function jump3(map) {
       latlng = new google.maps.LatLng(coords.lat, coords.lng);
 //        map.panTo(latlng);
       line.getPath().push(latlng);
-    }, 100 * i, locations[i]);        // playing safe
+    }, 100 * i, locations[i]);
   }
 }
 
+// Run for ATM
+function getDirections7(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(40.720648, -73.985336),            // AZUL Bistro
+              waypoints: [
+                {location: '127 Ludlow St, New York, NY 10002'},                // M.A. Grocery
+                {location: '64 Delancey St, New York, NY 10002'},               // Subway
+                {location: '92 Delancey St, New York, NY 10002'},               // Bank of America ATM
+                {location: '134 Division St, New York, NY 10002'}               // Dah Shop
+              ],
+              destination: new google.maps.LatLng(40.720648, -73.985336),       // AZUL Bistro
+              travelMode: google.maps.TravelMode.WALKING
+          };
 
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route7(map, result.routes[0].overview_path);
+        }
+    });
+}
 
+function route7(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
+}
+
+// To Lev's Apt
+function jump4(map) {
+  var lineSymbol = {
+    path: 'M 0,-1 0,1',
+    strokeOpacity: 0.5,
+    scale: 4
+  };
+
+  var line = new google.maps.Polyline({
+    path: [],
+    geodesic: true,
+    strokeColor: '#f45898',
+    strokeOpacity: 0,
+    strokeWeight: 5,
+    editable: false,
+    icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+    map:map
+  });
+
+  var locations = [{lat: 40.720648, lng: -73.985336},     // AZUL Bistro
+                   {lat: 40.713044, lng: -73.997381}      // Lev's Apt
+                 ];
+
+  for (var i = 0; i < locations.length; i++) {
+    setTimeout(function(coords) {
+      latlng = new google.maps.LatLng(coords.lat, coords.lng);
+//        map.panTo(latlng);
+      line.getPath().push(latlng);
+    }, 100 * i, locations[i]);
+  }
+}
+
+// Hang @ Lev's
+
+// Running Sequence 22:44 - 23:32
+function getDirections8(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(40.713896, -73.991424),            // East Broadway
+              waypoints: [
+                {location: google.maps.LatLng(40.713849, -73.992646)},         // Intersection on E Broadway
+                {location: '5 Eldridge St, New York, NY 10002'}                 // 964-9000
+              ],
+              destination: new google.maps.LatLng(40.713044, -73.997381),       // Lev's Apt
+              travelMode: google.maps.TravelMode.WALKING
+          };
+
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route8(map, result.routes[0].overview_path);
+        }
+    });
+}
+
+function route8(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
+}
+
+// Moved into Lev's
+
+// To Studio Performance
+function jump5(map) {
+  var lineSymbol = {
+    path: 'M 0,-1 0,1',
+    strokeOpacity: 0.5,
+    scale: 4
+  };
+
+  var line = new google.maps.Polyline({
+    path: [],
+    geodesic: true,
+    strokeColor: '#f45898',
+    strokeOpacity: 0,
+    strokeWeight: 5,
+    editable: false,
+    icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+    map:map
+  });
+
+  var locations = [{lat: 40.713044, lng: -73.997381},     // Lev's Apt
+                   {lat: 40.714404, lng: -74.005954}      // Dance New Amsterdam
+                 ];
+
+  for (var i = 0; i < locations.length; i++) {
+    setTimeout(function(coords) {
+      latlng = new google.maps.LatLng(coords.lat, coords.lng);
+//        map.panTo(latlng);
+      line.getPath().push(latlng);
+    }, 100 * i, locations[i]);
+  }
+}
+
+// Performance @ DNA
+// Bar Scene Missing
+
+// Back to Home
+function jump6(map) {
+  var lineSymbol = {
+    path: 'M 0,-1 0,1',
+    strokeOpacity: 0.5,
+    scale: 4
+  };
+
+  var line = new google.maps.Polyline({
+    path: [],
+    geodesic: true,
+    strokeColor: '#f45898',
+    strokeOpacity: 0,
+    strokeWeight: 5,
+    editable: false,
+    icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+    map:map
+  });
+
+  var locations = [{lat: 40.714404, lng: -74.005954},      // Dance New Amsterdam
+                   {lat: 40.713044, lng: -73.997381},      // Lev's Apt
+                   {lat: 40.696323, lng: -73.964805},      // Moishe's Self Storage
+                   {lat: 38.692804, lng: -121.588585},     // Sacramento Airport Arrivals
+                   {lat: 38.573141, lng: -121.427933}      // Parent's House
+                 ];
+
+  for (var i = 0; i < locations.length; i++) {
+    setTimeout(function(coords) {
+      latlng = new google.maps.LatLng(coords.lat, coords.lng);
+        map.panTo(latlng);
+      line.getPath().push(latlng);
+    }, 100 * i, locations[i]);
+  }
+}
 
 google.maps.event.addDomListener(window, 'load', initMap);
