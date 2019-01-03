@@ -9,13 +9,14 @@
 *   Waypoints not avaliable for TRANSIT.
 */
 
-var map;
+var map_nyc, map_sac, map_par;
+
 
 async function initMap() {
-       map = new google.maps.Map(document.getElementById('map'), {
+       map_nyc = new google.maps.Map(document.getElementById('map_nyc'), {
          zoom: 12,
          disableDefaultUI: true,
-         center: new google.maps.LatLng(40.761494, -73.977643),
+         center: new google.maps.LatLng(40.761494, -73.977643),     // MoMA
          styles: [
 		         {elementType: 'geometry', stylers: [{color: '#212121'}]},
 		         {elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
@@ -51,58 +52,140 @@ async function initMap() {
          ]
        });
 
-       getDirections1(map);     // 190
+
+       map_sac = new google.maps.Map(document.getElementById('map_sac'), {
+         zoom: 11,
+         disableDefaultUI: true,
+         center: new google.maps.LatLng(38.580751, -121.490961),
+         styles: [
+		         {elementType: 'geometry', stylers: [{color: '#212121'}]},
+		         {elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+             {elementType: 'labels.text.stroke', stylers: [{color: '#212121'}]},
+             {elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
+		         {featureType: 'administrative', elementType:"geometry", stylers: [{color: '#757575'}]},
+		         {featureType: 'administrative.country', elementType:"labels.text.fill", stylers: [{color: '#9e9e9e'}]},
+		         {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+	           {featureType: 'administrative.land_parcel', elementType:"labels", stylers: [{visibility: 'off'}]},
+		         {featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{color: '#bdbdbd'}]},
+		         {featureType: 'poi', elementType: 'labels.text', stylers: [{visibility: 'off'}]},
+             {featureType: 'poi', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
+		         {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+		         {featureType: 'poi.business', stylers: [{visibility: 'off'}]},
+             {featureType: 'poi.park', elementType: 'geometry', stylers: [{color: '#181818'}]},
+             {featureType: 'poi.park', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
+		         {featureType: 'poi.park', elementType: 'labels.text.stroke', stylers: [{color: '#1b1b1b'}]},
+             {featureType: 'road', elementType: 'geometry.fill', stylers: [{color: '#2c2c2c'}]},
+		         {featureType: 'road', elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+             {featureType: 'road', elementType: 'labels.text.fill', stylers: [{color: '#8a8a8a'}]},
+             {featureType: 'road.arterial', elementType: 'geometry', stylers: [{color: '#373737'}]},
+		         {featureType: 'road.arterial', elementType: 'labels', stylers: [{visibility: 'off'}]},
+             {featureType: 'road.highway', elementType: 'geometry', stylers: [{color: '#3c3c3c'}]},
+		         {featureType: 'road.highway', elementType: 'labels', stylers: [{visibility: 'off'}]},
+             {featureType: 'road.highway.controlled_access', elementType: 'geometry', stylers: [{color: '#4e4e4e'}]},
+		         {featureType: 'road.local', stylers: [{visibility: 'off'}]},
+		         {featureType: 'road.local', elementType: 'labels', stylers: [{visibility: 'off'}]},
+	           {featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
+   		       {featureType: 'transit', stylers: [{visibility: 'off'}]},
+             {featureType: 'transit', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
+             {featureType: 'water', elementType: 'geometry', stylers: [{color: '#000000'}]},
+             {featureType: 'water', elementType: 'labels.text.fill', stylers: [{color: '#3d3d3d'}]}
+         ]
+       });
+
+
+       map_par = new google.maps.Map(document.getElementById('map_par'), {
+         zoom: 12,
+         disableDefaultUI: true,
+         center: new google.maps.LatLng(48.856291, 2.352126),       // Paris
+         styles: [
+		         {elementType: 'geometry', stylers: [{color: '#212121'}]},
+		         {elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+             {elementType: 'labels.text.stroke', stylers: [{color: '#212121'}]},
+             {elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
+		         {featureType: 'administrative', elementType:"geometry", stylers: [{color: '#757575'}]},
+		         {featureType: 'administrative.country', elementType:"labels.text.fill", stylers: [{color: '#9e9e9e'}]},
+		         {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+	           {featureType: 'administrative.land_parcel', elementType:"labels", stylers: [{visibility: 'off'}]},
+		         {featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{color: '#bdbdbd'}]},
+		         {featureType: 'poi', elementType: 'labels.text', stylers: [{visibility: 'off'}]},
+             {featureType: 'poi', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
+		         {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+		         {featureType: 'poi.business', stylers: [{visibility: 'off'}]},
+             {featureType: 'poi.park', elementType: 'geometry', stylers: [{color: '#181818'}]},
+             {featureType: 'poi.park', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
+		         {featureType: 'poi.park', elementType: 'labels.text.stroke', stylers: [{color: '#1b1b1b'}]},
+             {featureType: 'road', elementType: 'geometry.fill', stylers: [{color: '#2c2c2c'}]},
+		         {featureType: 'road', elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+             {featureType: 'road', elementType: 'labels.text.fill', stylers: [{color: '#8a8a8a'}]},
+             {featureType: 'road.arterial', elementType: 'geometry', stylers: [{color: '#373737'}]},
+		         {featureType: 'road.arterial', elementType: 'labels', stylers: [{visibility: 'off'}]},
+             {featureType: 'road.highway', elementType: 'geometry', stylers: [{color: '#3c3c3c'}]},
+		         {featureType: 'road.highway', elementType: 'labels', stylers: [{visibility: 'off'}]},
+             {featureType: 'road.highway.controlled_access', elementType: 'geometry', stylers: [{color: '#4e4e4e'}]},
+		         {featureType: 'road.local', stylers: [{visibility: 'off'}]},
+		         {featureType: 'road.local', elementType: 'labels', stylers: [{visibility: 'off'}]},
+	           {featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
+   		       {featureType: 'transit', stylers: [{visibility: 'off'}]},
+             {featureType: 'transit', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
+             {featureType: 'water', elementType: 'geometry', stylers: [{color: '#000000'}]},
+             {featureType: 'water', elementType: 'labels.text.fill', stylers: [{color: '#3d3d3d'}]}
+         ]
+       });
+
+
+       getDirections1(map_nyc);     // 190
 
        setTimeout(function(){
-         jump1(map);            // 50 + 1720
+         jump1(map_nyc);            // 50 + 1720
        }, 190);
 
        setTimeout(function(){
-         getDirections2(map);   // 460
+         getDirections2(map_nyc);   // 460
        }, 1960);
 
        setTimeout(function(){
-         jump2(map);            // 50 + 1050
+         jump2(map_nyc);            // 50 + 1050
        }, 2010);
 
        setTimeout(function(){
-         getDirections3(map);   //
+         getDirections3(map_nyc);   //
        }, 3110);
 
        setTimeout(function(){
-         getDirections4(map);   //
+         getDirections4(map_nyc);   //
        }, 4000);
 
        setTimeout(function(){
-         getDirections5(map);   //
+         getDirections5(map_nyc);   //
        }, 6000);
 
        setTimeout(function(){
-         getDirections6(map);   //
+         getDirections6(map_nyc);   //
        }, 6500);
 
        setTimeout(function(){
-         jump3(map);   //
+         jump3(map_nyc);   //
        }, 7500);
 
        setTimeout(function(){
-         getDirections7(map);   //
+         getDirections7(map_nyc);   //
        }, 8000);
 
        setTimeout(function(){
-         jump4(map);   //
+         jump4(map_nyc);   //
        }, 8500);
 
        setTimeout(function(){
-         getDirections8(map);   //
+         getDirections8(map_nyc);   //
        }, 9000);
 
        setTimeout(function(){
-         jump5(map);   //
+         jump5(map_nyc);   //
        }, 10000);
 
        setTimeout(function(){
-         jump6(map);   //
+         jump6(map_nyc);
+         jump6(map_sac);   //
        }, 12000);
 
 }
@@ -636,7 +719,7 @@ function jump6(map) {
   for (var i = 0; i < locations.length; i++) {
     setTimeout(function(coords) {
       latlng = new google.maps.LatLng(coords.lat, coords.lng);
-        map.panTo(latlng);
+//        map.panTo(latlng);
       line.getPath().push(latlng);
     }, 100 * i, locations[i]);
   }

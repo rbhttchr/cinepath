@@ -16,11 +16,25 @@ img {
   width: 65%;
 }
 
-#map {
+#map_sac {
     height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 1;
+    width: 33%;
+    margin-left: 0.3%;
+    float: left;
+}
+
+#map_nyc {
+  height: 100%;
+  width: 33%;
+  margin-left: 0.3%;
+  float: left;
+}
+
+#map_par {
+  height: 100%;
+  width: 33%;
+  margin-left: 0.3%;
+  float: left;
 }
 
 #display {
