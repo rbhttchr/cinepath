@@ -188,6 +188,19 @@ async function initMap() {
          jump6(map_sac);   //
        }, 12000);
 
+       setTimeout(function(){
+         getDirections9(map_sac);
+       }, 12200);
+
+       setTimeout(function(){
+         jump7(map_sac);
+         jump7(map_nyc);
+       }, 13500);
+
+       setTimeout(function(){
+         getDirections10(map_nyc);
+       }, 14000);
+
 }
 
 
@@ -712,8 +725,7 @@ function jump6(map) {
   var locations = [{lat: 40.714404, lng: -74.005954},      // Dance New Amsterdam
                    {lat: 40.713044, lng: -73.997381},      // Lev's Apt
                    {lat: 40.696323, lng: -73.964805},      // Moishe's Self Storage
-                   {lat: 38.692804, lng: -121.588585},     // Sacramento Airport Arrivals
-                   {lat: 38.573141, lng: -121.427933}      // Parent's House
+                   {lat: 38.692804, lng: -121.588585}      // Sacramento Airport Arrivals
                  ];
 
   for (var i = 0; i < locations.length; i++) {
@@ -723,6 +735,123 @@ function jump6(map) {
       line.getPath().push(latlng);
     }, 100 * i, locations[i]);
   }
+}
+
+// Sacramento
+function getDirections9(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(38.692804, -121.588585),         // Sacramento Airport Arrivals
+              waypoints: [
+                {location: new google.maps.LatLng(38.474829, -121.504258)},   // Water Tower
+                {location: new google.maps.LatLng(38.580450, -121.507783)},   // Tower Bridge
+                {location: new google.maps.LatLng(38.577730, -121.498062)},   // State Captiol Museum
+                {location: new google.maps.LatLng(38.573103, -121.427961)}   // Parents' House
+              ],
+              destination: new google.maps.LatLng(38.691956, -121.591392),   // SAC
+              travelMode: google.maps.TravelMode.WALKING
+          };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route9(map, result.routes[0].overview_path);
+        }
+    });
+}
+
+function route9(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+//    console.log(pathCoords.length);
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 5 * i, pathCoords[i]);
+    }
+}
+
+// Back to NY
+// Back to Home
+function jump7(map) {
+  var lineSymbol = {
+    path: 'M 0,-1 0,1',
+    strokeOpacity: 0.5,
+    scale: 4
+  };
+
+  var line = new google.maps.Polyline({
+    path: [],
+    geodesic: true,
+    strokeColor: '#f45898',
+    strokeOpacity: 0,
+    strokeWeight: 5,
+    editable: false,
+    icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+    map:map
+  });
+
+  var locations = [{lat: 38.691956, lng: -121.591392},      // SAC
+                   {lat: 40.629178, lng: -73.782010},       // JFK
+                   {lat: 40.715224, lng: -73.983655},        // East Village Dance Project
+                   {lat: 40.714930, lng: -73.989232}        // Seward Park
+                 ];
+
+  for (var i = 0; i < locations.length; i++) {
+    setTimeout(function(coords) {
+      latlng = new google.maps.LatLng(coords.lat, coords.lng);
+//        map.panTo(latlng);
+      line.getPath().push(latlng);
+    }, 100 * i, locations[i]);
+  }
+}
+
+// Unknown Apartment
+
+// Transit to JFK
+function getDirections10(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(40.714930, -73.989232),         // Seward Park
+              destination: new google.maps.LatLng(40.646809, -73.788776),   // JFK Terminal 8 AA
+              travelMode: google.maps.TravelMode.TRANSIT
+          };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route10(map, result.routes[0].overview_path);
+        }
+    });
+}
+
+function route10(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    console.log(pathCoords.length);
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
 }
 
 google.maps.event.addDomListener(window, 'load', initMap);
