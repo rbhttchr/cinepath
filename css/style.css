@@ -17,13 +17,28 @@ img {
 }
 
 
+.map_left {
+  height: 100%;
+  width: 33%;
+  margin-left: 0.3%;
+  float: left;
+}
 
+.map_right {
+  height: 100%;
+  width: 33%;
+  margin-left: 0.3%;
+  float: left;
+}
+
+#map_world {
+    height: 50%;
+}
 
 #map_sac {
-    height: 100%;
-    width: 33%;
-    margin-left: 0.3%;
-    float: left;
+    height: 49.5%;
+    margin-top: 1%;
+    position: relative;
 }
 
 #map_nyc {
@@ -33,13 +48,14 @@ img {
   float: left;
 }
 
-
+#map_upstate {
+  height: 50%;
+}
 
 #map_par {
-  height: 100%;
-  width: 33%;
-  margin-left: 0.3%;
-  float: left;
+  height: 49.5%;
+  margin-top: 1%;
+  position: relative;
 }
 
 #display {
