@@ -201,6 +201,12 @@ async function initMap() {
          getDirections10(map_nyc);
        }, 14000);
 
+//JUMP
+
+       setTimeout(function(){
+         getDirections11(map_par);
+       }, 15000);
+
 }
 
 
@@ -853,5 +859,50 @@ function route10(map, pathCoords) {
         }, 10 * i, pathCoords[i]);
     }
 }
+
+// Fly to paris
+
+
+// CDG to Free Apt
+function getDirections11(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(49.002992, 2.561663),         // CDG
+/*              waypoints: [
+                {location: new google.maps.LatLng(48.853580, 2.344921)}   // Saint-Michel - Notre-Dame
+              ],
+              */
+              destination: new google.maps.LatLng(48.846322, 2.324156),   // Free Apt
+              travelMode: google.maps.TravelMode.TRANSIT
+          };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route11(map, result.routes[0].overview_path);
+        }
+    });
+}
+
+function route11(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    console.log(pathCoords.length);
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
+}
+
+
+
 
 google.maps.event.addDomListener(window, 'load', initMap);
