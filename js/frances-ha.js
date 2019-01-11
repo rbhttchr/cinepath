@@ -97,34 +97,34 @@ async function initMap() {
          disableDefaultUI: true,
          center: new google.maps.LatLng(38.580751, -121.490961),
          styles: [
-		         {elementType: 'geometry', stylers: [{color: '#212121'}]},
-		         {elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+            {elementType: 'geometry', stylers: [{color: '#212121'}]},
+            {elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
              {elementType: 'labels.text.stroke', stylers: [{color: '#212121'}]},
              {elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
-		         {featureType: 'administrative', elementType:"geometry", stylers: [{color: '#757575'}]},
-		         {featureType: 'administrative.country', elementType:"labels.text.fill", stylers: [{color: '#9e9e9e'}]},
-		         {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
-	           {featureType: 'administrative.land_parcel', elementType:"labels", stylers: [{visibility: 'off'}]},
-		         {featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{color: '#bdbdbd'}]},
-		         {featureType: 'poi', elementType: 'labels.text', stylers: [{visibility: 'off'}]},
+            {featureType: 'administrative', elementType:"geometry", stylers: [{color: '#757575'}]},
+            {featureType: 'administrative.country', elementType:"labels.text.fill", stylers: [{color: '#9e9e9e'}]},
+//            {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+            {featureType: 'administrative.land_parcel', elementType:"labels", stylers: [{visibility: 'off'}]},
+            {featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{color: '#bdbdbd'}]},
+//            {featureType: 'poi', elementType: 'labels.text', stylers: [{visibility: 'off'}]},
              {featureType: 'poi', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
-		         {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
-		         {featureType: 'poi.business', stylers: [{visibility: 'off'}]},
+//            {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+//            {featureType: 'poi.business', stylers: [{visibility: 'off'}]},
              {featureType: 'poi.park', elementType: 'geometry', stylers: [{color: '#181818'}]},
              {featureType: 'poi.park', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
-		         {featureType: 'poi.park', elementType: 'labels.text.stroke', stylers: [{color: '#1b1b1b'}]},
+            {featureType: 'poi.park', elementType: 'labels.text.stroke', stylers: [{color: '#1b1b1b'}]},
              {featureType: 'road', elementType: 'geometry.fill', stylers: [{color: '#2c2c2c'}]},
-		         {featureType: 'road', elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+//            {featureType: 'road', elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
              {featureType: 'road', elementType: 'labels.text.fill', stylers: [{color: '#8a8a8a'}]},
              {featureType: 'road.arterial', elementType: 'geometry', stylers: [{color: '#373737'}]},
-		         {featureType: 'road.arterial', elementType: 'labels', stylers: [{visibility: 'off'}]},
+            {featureType: 'road.arterial', elementType: 'labels', stylers: [{visibility: 'off'}]},
              {featureType: 'road.highway', elementType: 'geometry', stylers: [{color: '#3c3c3c'}]},
-		         {featureType: 'road.highway', elementType: 'labels', stylers: [{visibility: 'off'}]},
+            {featureType: 'road.highway', elementType: 'labels', stylers: [{visibility: 'off'}]},
              {featureType: 'road.highway.controlled_access', elementType: 'geometry', stylers: [{color: '#4e4e4e'}]},
-		         {featureType: 'road.local', stylers: [{visibility: 'off'}]},
-		         {featureType: 'road.local', elementType: 'labels', stylers: [{visibility: 'off'}]},
-	           {featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
-   		       {featureType: 'transit', stylers: [{visibility: 'off'}]},
+//            {featureType: 'road.local', stylers: [{visibility: 'off'}]},
+//            {featureType: 'road.local', elementType: 'labels', stylers: [{visibility: 'off'}]},
+            {featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
+//              {featureType: 'transit', stylers: [{visibility: 'off'}]},
              {featureType: 'transit', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
              {featureType: 'water', elementType: 'geometry', stylers: [{color: '#000000'}]},
              {featureType: 'water', elementType: 'labels.text.fill', stylers: [{color: '#3d3d3d'}]}
@@ -132,38 +132,38 @@ async function initMap() {
        });
 
        map_upstate = new google.maps.Map(document.getElementById('map_upstate'), {
-         zoom: 12,
+         zoom: 15,
          disableDefaultUI: true,
-         center: new google.maps.LatLng(41.7165, -73.9242),       // Poughkeepsie
+         center: new google.maps.LatLng(41.686785, -73.895664),       // Vassar College
          styles: [
-             {elementType: 'geometry', stylers: [{color: '#212121'}]},
-             {elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+            {elementType: 'geometry', stylers: [{color: '#212121'}]},
+            {elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
              {elementType: 'labels.text.stroke', stylers: [{color: '#212121'}]},
              {elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
-             {featureType: 'administrative', elementType:"geometry", stylers: [{color: '#757575'}]},
-             {featureType: 'administrative.country', elementType:"labels.text.fill", stylers: [{color: '#9e9e9e'}]},
-             {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
-             {featureType: 'administrative.land_parcel', elementType:"labels", stylers: [{visibility: 'off'}]},
-             {featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{color: '#bdbdbd'}]},
-             {featureType: 'poi', elementType: 'labels.text', stylers: [{visibility: 'off'}]},
+            {featureType: 'administrative', elementType:"geometry", stylers: [{color: '#757575'}]},
+            {featureType: 'administrative.country', elementType:"labels.text.fill", stylers: [{color: '#9e9e9e'}]},
+//            {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+            {featureType: 'administrative.land_parcel', elementType:"labels", stylers: [{visibility: 'off'}]},
+            {featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{color: '#bdbdbd'}]},
+//            {featureType: 'poi', elementType: 'labels.text', stylers: [{visibility: 'off'}]},
              {featureType: 'poi', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
-             {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
-             {featureType: 'poi.business', stylers: [{visibility: 'off'}]},
+//            {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+//            {featureType: 'poi.business', stylers: [{visibility: 'off'}]},
              {featureType: 'poi.park', elementType: 'geometry', stylers: [{color: '#181818'}]},
              {featureType: 'poi.park', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
-             {featureType: 'poi.park', elementType: 'labels.text.stroke', stylers: [{color: '#1b1b1b'}]},
+            {featureType: 'poi.park', elementType: 'labels.text.stroke', stylers: [{color: '#1b1b1b'}]},
              {featureType: 'road', elementType: 'geometry.fill', stylers: [{color: '#2c2c2c'}]},
-             {featureType: 'road', elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+//            {featureType: 'road', elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
              {featureType: 'road', elementType: 'labels.text.fill', stylers: [{color: '#8a8a8a'}]},
              {featureType: 'road.arterial', elementType: 'geometry', stylers: [{color: '#373737'}]},
-             {featureType: 'road.arterial', elementType: 'labels', stylers: [{visibility: 'off'}]},
+            {featureType: 'road.arterial', elementType: 'labels', stylers: [{visibility: 'off'}]},
              {featureType: 'road.highway', elementType: 'geometry', stylers: [{color: '#3c3c3c'}]},
-             {featureType: 'road.highway', elementType: 'labels', stylers: [{visibility: 'off'}]},
+            {featureType: 'road.highway', elementType: 'labels', stylers: [{visibility: 'off'}]},
              {featureType: 'road.highway.controlled_access', elementType: 'geometry', stylers: [{color: '#4e4e4e'}]},
-             {featureType: 'road.local', stylers: [{visibility: 'off'}]},
-             {featureType: 'road.local', elementType: 'labels', stylers: [{visibility: 'off'}]},
-             {featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
-             {featureType: 'transit', stylers: [{visibility: 'off'}]},
+//            {featureType: 'road.local', stylers: [{visibility: 'off'}]},
+//            {featureType: 'road.local', elementType: 'labels', stylers: [{visibility: 'off'}]},
+            {featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
+//              {featureType: 'transit', stylers: [{visibility: 'off'}]},
              {featureType: 'transit', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
              {featureType: 'water', elementType: 'geometry', stylers: [{color: '#000000'}]},
              {featureType: 'water', elementType: 'labels.text.fill', stylers: [{color: '#3d3d3d'}]}
@@ -171,38 +171,38 @@ async function initMap() {
        });
 
        map_par = new google.maps.Map(document.getElementById('map_par'), {
-         zoom: 12,
+         zoom: 13,
          disableDefaultUI: true,
-         center: new google.maps.LatLng(48.856291, 2.352126),       // Paris
+         center: new google.maps.LatLng(48.863842, 2.322681),       // Orangeire Museum
          styles: [
-		         {elementType: 'geometry', stylers: [{color: '#212121'}]},
-		         {elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+            {elementType: 'geometry', stylers: [{color: '#212121'}]},
+            {elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
              {elementType: 'labels.text.stroke', stylers: [{color: '#212121'}]},
              {elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
-		         {featureType: 'administrative', elementType:"geometry", stylers: [{color: '#757575'}]},
-		         {featureType: 'administrative.country', elementType:"labels.text.fill", stylers: [{color: '#9e9e9e'}]},
-		         {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
-	           {featureType: 'administrative.land_parcel', elementType:"labels", stylers: [{visibility: 'off'}]},
-		         {featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{color: '#bdbdbd'}]},
-		         {featureType: 'poi', elementType: 'labels.text', stylers: [{visibility: 'off'}]},
+            {featureType: 'administrative', elementType:"geometry", stylers: [{color: '#757575'}]},
+            {featureType: 'administrative.country', elementType:"labels.text.fill", stylers: [{color: '#9e9e9e'}]},
+//            {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+            {featureType: 'administrative.land_parcel', elementType:"labels", stylers: [{visibility: 'off'}]},
+            {featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{color: '#bdbdbd'}]},
+//            {featureType: 'poi', elementType: 'labels.text', stylers: [{visibility: 'off'}]},
              {featureType: 'poi', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
-		         {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
-		         {featureType: 'poi.business', stylers: [{visibility: 'off'}]},
+//            {featureType: 'administrative.land_parcel', stylers: [{visibility: 'off'}]},
+//            {featureType: 'poi.business', stylers: [{visibility: 'off'}]},
              {featureType: 'poi.park', elementType: 'geometry', stylers: [{color: '#181818'}]},
              {featureType: 'poi.park', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
-		         {featureType: 'poi.park', elementType: 'labels.text.stroke', stylers: [{color: '#1b1b1b'}]},
+            {featureType: 'poi.park', elementType: 'labels.text.stroke', stylers: [{color: '#1b1b1b'}]},
              {featureType: 'road', elementType: 'geometry.fill', stylers: [{color: '#2c2c2c'}]},
-		         {featureType: 'road', elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
+//            {featureType: 'road', elementType: 'labels.icon', stylers: [{visibility: 'off'}]},
              {featureType: 'road', elementType: 'labels.text.fill', stylers: [{color: '#8a8a8a'}]},
              {featureType: 'road.arterial', elementType: 'geometry', stylers: [{color: '#373737'}]},
-		         {featureType: 'road.arterial', elementType: 'labels', stylers: [{visibility: 'off'}]},
+            {featureType: 'road.arterial', elementType: 'labels', stylers: [{visibility: 'off'}]},
              {featureType: 'road.highway', elementType: 'geometry', stylers: [{color: '#3c3c3c'}]},
-		         {featureType: 'road.highway', elementType: 'labels', stylers: [{visibility: 'off'}]},
+            {featureType: 'road.highway', elementType: 'labels', stylers: [{visibility: 'off'}]},
              {featureType: 'road.highway.controlled_access', elementType: 'geometry', stylers: [{color: '#4e4e4e'}]},
-		         {featureType: 'road.local', stylers: [{visibility: 'off'}]},
-		         {featureType: 'road.local', elementType: 'labels', stylers: [{visibility: 'off'}]},
-	           {featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
-   		       {featureType: 'transit', stylers: [{visibility: 'off'}]},
+//            {featureType: 'road.local', stylers: [{visibility: 'off'}]},
+//            {featureType: 'road.local', elementType: 'labels', stylers: [{visibility: 'off'}]},
+            {featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
+//              {featureType: 'transit', stylers: [{visibility: 'off'}]},
              {featureType: 'transit', elementType: 'labels.text.fill', stylers: [{color: '#757575'}]},
              {featureType: 'water', elementType: 'geometry', stylers: [{color: '#000000'}]},
              {featureType: 'water', elementType: 'labels.text.fill', stylers: [{color: '#3d3d3d'}]}
@@ -295,13 +295,59 @@ async function initMap() {
          getDirections10(map_world);
        }, 14000);
 
-//JUMP
+       setTimeout(function(){
+         jump8(map_par);
+         jump8(map_nyc);
+         jump8(map_world);
+       }, 15000);
 
        setTimeout(function(){
          getDirections11(map_par);
          getDirections11(map_world);
-       }, 15000);
+       }, 15200);
 
+      setTimeout(function(){
+        getDirections12(map_par);
+        getDirections12(map_world);
+      }, 16200);
+
+      setTimeout(function(){
+        jump9(map_par);
+        jump9(map_nyc);
+        jump9(map_world);
+      }, 18000);
+
+      setTimeout(function(){
+        jump10(map_upstate);
+        jump10(map_nyc);
+        jump10(map_world);
+      }, 18500);
+
+      setTimeout(function(){
+        getDirections13(map_upstate);
+        getDirections13(map_world);
+      }, 19000);
+
+      setTimeout(function(){
+        getDirections14(map_upstate);
+        getDirections14(map_world);
+      }, 21000);
+
+      setTimeout(function(){
+        jump11(map_upstate);
+        jump11(map_nyc);
+        jump11(map_world);
+      }, 22000);
+
+      setTimeout(function(){
+        getDirections15(map_nyc);
+        getDirections15(map_world);
+      }, 22500);
+
+      setTimeout(function(){
+        jump12(map_nyc);
+        jump12(map_world);
+      }, 24000);
 }
 
 
@@ -956,7 +1002,40 @@ function route10(map, pathCoords) {
 }
 
 // Fly to paris
+function jump8(map) {
+  var lineSymbol = {
+    path: 'M 0,-1 0,1',
+    strokeOpacity: 0.5,
+    scale: 4
+  };
 
+  var line = new google.maps.Polyline({
+    path: [],
+    geodesic: true,
+    strokeColor: '#f45898',
+    strokeOpacity: 0,
+    strokeWeight: 5,
+    editable: false,
+    icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+    map:map
+  });
+
+  var locations = [{lat: 40.646809, lng: -73.788776},      // JFK
+                   {lat: 49.002992, lng: 2.561663}        // CDG
+                 ];
+
+  for (var i = 0; i < locations.length; i++) {
+    setTimeout(function(coords) {
+      latlng = new google.maps.LatLng(coords.lat, coords.lng);
+//        map.panTo(latlng);
+      line.getPath().push(latlng);
+    }, 100 * i, locations[i]);
+  }
+}
 
 // CDG to Free Apt
 function getDirections11(map) {
@@ -997,7 +1076,311 @@ function route11(map, pathCoords) {
     }
 }
 
+// Random Park
+
+// Walking around Paris
+function getDirections12(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(48.846322, 2.324156),         // Free Apt
+              waypoints: [
+                {location: new google.maps.LatLng(48.854042, 2.332718)},   // Cafe de Flore
+                {location: new google.maps.LatLng(48.863909, 2.320449)},   // Pont de la Concorde
+                {location: new google.maps.LatLng(48.858511, 2.341261)},   // Parc des Rives de Seine
+                {location: new google.maps.LatLng(48.869602, 2.307523)},     // Gaumont Champs-Elysées
+                {location: new google.maps.LatLng(48.872555, 2.299324)}   // Arc de Triomphe in Background
+              ],
+              destination: new google.maps.LatLng(48.846322, 2.324156),   // Free Apt
+              travelMode: google.maps.TravelMode.WALKING
+          };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route12(map, result.routes[0].overview_path);
+        }
+    });
+}
+
+function route12(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    console.log(pathCoords.length);
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
+}
+
+// Back to NYC
+function jump9(map) {
+  var lineSymbol = {
+    path: 'M 0,-1 0,1',
+    strokeOpacity: 0.5,
+    scale: 4
+  };
+
+  var line = new google.maps.Polyline({
+    path: [],
+    geodesic: true,
+    strokeColor: '#f45898',
+    strokeOpacity: 0,
+    strokeWeight: 5,
+    editable: false,
+    icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+    map:map
+  });
+
+  var locations = [{lat: 48.846322, lng: 2.324156},      // Free Apt
+                   {lat: 49.002992, lng: 2.561663},      // CDG
+                   {lat: 40.646809, lng: -73.788776},      // JFK
+                   {lat: 40.714404, lng: -74.005954}      // Dance New Amsterdam
+                 ];
+
+  for (var i = 0; i < locations.length; i++) {
+    setTimeout(function(coords) {
+      latlng = new google.maps.LatLng(coords.lat, coords.lng);
+//        map.panTo(latlng);
+      line.getPath().push(latlng);
+    }, 100 * i, locations[i]);
+  }
+}
+
+// PO Box
+function jump10(map) {
+  var lineSymbol = {
+    path: 'M 0,-1 0,1',
+    strokeOpacity: 0.5,
+    scale: 4
+  };
+
+  var line = new google.maps.Polyline({
+    path: [],
+    geodesic: true,
+    strokeColor: '#f45898',
+    strokeOpacity: 0,
+    strokeWeight: 5,
+    editable: false,
+    icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+    map:map
+  });
+
+  var locations = [{lat: 40.714404, lng: -74.005954},      // Dance New Amsterdam
+                   {lat: 41.688337, lng: -73.892869}        // Woods
+                 ];
+
+  for (var i = 0; i < locations.length; i++) {
+    setTimeout(function(coords) {
+      latlng = new google.maps.LatLng(coords.lat, coords.lng);
+//        map.panTo(latlng);
+      line.getPath().push(latlng);
+    }, 100 * i, locations[i]);
+  }
+}
+
+// Around Campus
+function getDirections13(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(41.688337, -73.892869),         // Woods
+              waypoints: [
+                {location: new google.maps.LatLng(41.686904, -73.895003)},   // College Center
+                {location: new google.maps.LatLng(41.688299, -73.897160)},   // Campus Walk
+                {location: new google.maps.LatLng(41.689841, -73.890982)},   // Kenyon Hall Dance Studio
+                {location: new google.maps.LatLng(41.691060, -73.901667)},   // Alumnae House
+                {location: new google.maps.LatLng(41.686263, -73.895526)},     // Dorm
+                {location: new google.maps.LatLng(41.688337, -73.892869)}   // Woods
+              ],
+              destination: new google.maps.LatLng(41.691060, -73.901667),   // Alumnae House
+              travelMode: google.maps.TravelMode.WALKING
+          };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route13(map, result.routes[0].overview_path);
+        }
+    });
+}
+
+function route13(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    console.log(pathCoords.length);
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
+}
+
+// Patch Driving
+function getDirections14(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(41.691060, -73.901667),         // Alumnae House
+              destination: new google.maps.LatLng(41.686263, -73.895526),   // Dorm
+              travelMode: google.maps.TravelMode.WALKING
+          };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route14(map, result.routes[0].overview_path);
+        }
+    });
+}
+
+function route14(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    console.log(pathCoords.length);
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
+}
+
+// Back in the City
+function jump11(map) {
+  var lineSymbol = {
+    path: 'M 0,-1 0,1',
+    strokeOpacity: 0.5,
+    scale: 4
+  };
+
+  var line = new google.maps.Polyline({
+    path: [],
+    geodesic: true,
+    strokeColor: '#f45898',
+    strokeOpacity: 0,
+    strokeWeight: 5,
+    editable: false,
+    icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+    map:map
+  });
+
+  var locations = [{lat: 41.686263, lng: -73.895526},      // Dorm
+                   {lat: 40.841621, lng: -73.937237}      // Washington Heights
+                 ];
+
+  for (var i = 0; i < locations.length; i++) {
+    setTimeout(function(coords) {
+      latlng = new google.maps.LatLng(coords.lat, coords.lng);
+//        map.panTo(latlng);
+      line.getPath().push(latlng);
+    }, 100 * i, locations[i]);
+  }
+}
+
+// Commute to Work
+function getDirections15(map) {
+    var directionsService = new google.maps.DirectionsService();
+    var request = {
+              origin: new google.maps.LatLng(40.841621, -73.937237),         // Washington Heights
+              destination: new google.maps.LatLng(40.714404, -74.005954),   // Dance New Amsterdam
+              travelMode: google.maps.TravelMode.TRANSIT
+          };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            route15(map, result.routes[0].overview_path);
+        }
+    });
+}
+
+function route15(map, pathCoords) {
+    var route = new google.maps.Polyline({
+        path: [],
+        geodesic : true,
+        strokeColor: '#f45898',
+        strokeOpacity: 0.5,
+        strokeWeight: 5,
+        editable: false,
+        map:map
+    });
+
+    console.log(pathCoords.length);
+
+    for (var i = 0; i < pathCoords.length; i++) {
+        setTimeout(function(coords) {
+            route.getPath().push(coords);
+        }, 10 * i, pathCoords[i]);
+    }
+}
 
 
+
+// Ending Sequence
+function jump12(map) {
+  var lineSymbol = {
+    path: 'M 0,-1 0,1',
+    strokeOpacity: 0.5,
+    scale: 4
+  };
+
+  var line = new google.maps.Polyline({
+    path: [],
+    geodesic: true,
+    strokeColor: '#f45898',
+    strokeOpacity: 0,
+    strokeWeight: 5,
+    editable: false,
+    icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+    map:map
+  });
+
+  var locations = [{lat: 40.714404, lng: -74.005954},      // Dance New Amsterdam
+                   {lat: 40.712198, lng: -74.007153},      // City Hall Park
+                   {lat: 40.714404, lng: -74.005954},      // Dance New Amsterdam
+                   {lat: 40.841621, lng: -73.937237}      // Washington Heights
+                 ];
+
+  for (var i = 0; i < locations.length; i++) {
+    setTimeout(function(coords) {
+      latlng = new google.maps.LatLng(coords.lat, coords.lng);
+//        map.panTo(latlng);
+      line.getPath().push(latlng);
+    }, 100 * i, locations[i]);
+  }
+}
 
 google.maps.event.addDomListener(window, 'load', initMap);
