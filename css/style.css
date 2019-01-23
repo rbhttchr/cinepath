@@ -32,7 +32,17 @@ img {
 }
 
 #map_world {
-    height: 50%;
+    height: 20%;
+    margin-top: 1%;
+}
+
+#display {
+  margin-top: 1%;
+  position: relative;
+}
+
+#display img {
+  width: 100%;
 }
 
 #map_sac {
@@ -56,11 +66,4 @@ img {
   height: 49.5%;
   margin-top: 1%;
   position: relative;
-}
-
-#display {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  z-index: 2;
 }
